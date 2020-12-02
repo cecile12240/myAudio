@@ -1,24 +1,23 @@
 package com.myaudiolibrary.web.model;
 
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
-
 import javax.persistence.*;
 import java.util.Objects;
 
 @Inheritance(strategy = InheritanceType.JOINED)
 @JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.PROPERTY, property = "type")
 
-public class Album {
+public class Artist {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String nom;
-    private String artist;
+    private String album;
 
-    public Album(String nom, String artist) {
+    public Artist(String nom, String album) {
         this.nom = nom;
-        this.artist = artist;
+        this.album = album;
     }
 
     public String getNom() {
@@ -28,25 +27,25 @@ public class Album {
         this.nom = nom;
     }
 
-    public String getArtist() {
-        return artist;
+    public String getAlbum() {
+        return album;
     }
-    public void setArtist(String artist) {
-        this.artist = artist;
+    public void setAlbum(String album) {
+        this.album = album;
     }
 
     @Override
     public String toString() {
-        final StringBuilder sb = new StringBuilder("Album{");
+        final StringBuilder sb = new StringBuilder("Artist{");
         sb.append("nom='").append(nom).append('\'');
-        sb.append(", artist='").append(artist).append('\'');
+        sb.append(", album='").append(album).append('\'');
         sb.append('}');
         return sb.toString();
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(nom, artist);
+        return Objects.hash(nom, album);
     }
 
 }

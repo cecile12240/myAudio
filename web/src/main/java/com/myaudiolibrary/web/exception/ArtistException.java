@@ -1,4 +1,4 @@
 package com.myaudiolibrary.web.exception;
 
-public class ArtisteException {
+public class ArtistException {
 }
